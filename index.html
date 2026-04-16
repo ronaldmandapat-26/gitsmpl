@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ronald Mandapat | Futuristic Portfolio</title>
+
+<style>
+:root {
+  --bg: #050810;
+  --text: #e6f1ff;
+  --card: rgba(255,255,255,0.06);
+  --primary: #00f7ff;
+  --accent: #8a2be2;
+}
+
+body.dark {
+  --bg: #f5f7fa;
+  --text: #222;
+  --card: rgba(255,255,255,0.9);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: radial-gradient(circle at top, #0a0f2c, #02040a);
+  color: var(--text);
+}
+
+header {
+  text-align: center;
+  padding: 70px 20px;
+}
+
+header h1 {
+  font-size: 32px;
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, #00f7ff, #8a2be2);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+#typing {
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(12px);
+  background: rgba(0,0,0,0.85);
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  z-index: 1000;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+body.dark nav {
+  background: rgba(255,255,255,0.9);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+nav a {
+  margin: 0 12px;
+  color: var(--text);
+  text-decoration: none;
+  position: relative;
+  font-weight: 500;
+}
+
+body.dark nav a {
+  color: #222;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background: var(--primary);
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 25px;
+  margin: 20px 0;
+  border-radius: 15px;
+  backdrop-filter: blur(12px);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(0,247,255,0.25);
+}
+
+.info-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  box-shadow: 0 0 20px var(--primary);
+  object-fit: cover;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  background: linear-gradient(90deg, #00f7ff, #8a2be2);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--primary);
+}
+
+.skills-list {
+  line-height: 2;
+}
+
+.gallery img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-top: 10px;
+  background: #00000020;
+  padding: 8px;
+  transition: 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+#topBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+}
+
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media(max-width:768px){
+  .info-container{
+    flex-direction:column;
+    text-align:center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>RONALD V. MANDAPAT JR.</h1>
+  <p id="typing"></p>
+  <button onclick="toggleMode()">🌙 Dark Mode</button>
+</header>
+
+<nav>
+  <a href="#info">Info</a>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#education">Education</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+
+<div class="card fade" id="info">
+  <h2>Personal Info</h2>
+  <div class="info-container">
+    <img src="images/profile.jpg" class="profile-img">
+    <div>
+      <p><b>Name:</b> Ronald V Mandapat Jr.</p>
+      <p><b>Location:</b> Palayan City, Nueva Ecija</p>
+      <p><b>Email:</b> mandapatronald2@gmail.com</p>
+      <a href="resume/resume.pdf" download>
+        <button>📄 Download Resume</button>
+      </a>
+    </div>
+  </div>
+
+  <br>
+
+  <h2>Introduction</h2>
+  <p>
+    I am a motivated Information Technology student with a growing passion for software development and digital solutions. I am continuously building my skills, exploring new technologies, and striving to become a skilled and professional IT specialist in the future.
+  </p>
+</div>
+
+<div class="card fade" id="about">
+  <h2>About Me</h2>
+  <p>Hi! I'm Ronald Mandapat, an aspiring IT specialist who enjoys learning new skills and improving my work.
+In my free time, I love playing video games and watching movies. My goal is to become a skilled developer and turn ideas into reality.</p>
+</div>
+
+<div class="card fade" id="skills">
+  <h2>Skills</h2>
+  <div class="skills-list">
+    • Friendly<br>
+    • Understanding<br>
+    • Hardworking<br>
+    • Team Player<br>
+    • Good Communication Skills
+  </div>
+</div>
+
+<div class="card fade" id="education">
+  <h2>Education</h2>
+
+  <p><b>PHINMA Araullo University – South Campus</b><br>
+  Bachelor of Science in Information Technology (2025)</p>
+
+  <br>
+
+  <p><b>The Rizal Memorial Colleges Inc.</b><br>
+  Senior High School – HUMSS (2024–2025)</p>
+
+  <br>
+
+  <p><b>Palayan City National High School</b><br>
+  Junior High School (2022–2023)</p>
+
+  <br>
+
+  <p><b>Pedro Valenzuela Elementary School</b><br>
+  Elementary School (2013–2019)</p>
+</div>
+
+<div class="card fade" id="projects">
+  <h2>Projects / Portfolio</h2>
+
+  <div>
+    <p><b>Number Guessing Game (Python)</b></p>
+    <p>A simple game where the user guesses a number from 1–50 using loops and conditions.</p>
+    <div class="gallery">
+      <img src="images/95c990b5-773b-4a0c-abdc-616ac38a9027.jpg">
+    </div>
+  </div>
+
+  <br>
+
+  <div>
+    <p><b>Navigational Gallery</b></p>
+    <p>Simple website Navigational Gallery.</p>
+    <div class="gallery">
+      <img src="images/Screenshot (22).png">
+    </div>
+  </div>
+</div>
+
+<div class="card fade" id="contact">
+  <h2>Contact</h2>
+  <p>Email: mandapatronald2@gmail.com</p>
+  <p>Phone: 09758650861</p>
+  <p>Address: Manacnac,Palayan City,Nueva Ecija</p>
+
+  <br><br>
+
+  <form>
+    <input type="text" placeholder="Your Name" required style="width:100%;padding:10px;margin-bottom:10px;border-radius:8px;border:none;">
+    <input type="email" placeholder="Your Email" required style="width:100%;padding:10px;margin-bottom:10px;border-radius:8px;border:none;">
+    <textarea placeholder="Your Message" required style="width:100%;padding:10px;height:100px;border-radius:8px;border:none;"></textarea>
+    <br>
+    <button type="submit">Send Message</button>
+  </form>
+</div>
+
+</div>
+
+<button id="topBtn" onclick="scrollTopBtn()">↑</button>
+
+<footer>
+  © 2026 Ronald Mandapat
+</footer>
+
+<script>
+function toggleMode() {
+  document.body.classList.toggle("dark");
+}
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+document.querySelectorAll(".fade").forEach(el => observer.observe(el));
+
+const btn = document.getElementById("topBtn");
+
+window.onscroll = () => {
+  btn.style.display = window.scrollY > 300 ? "block" : "none";
+};
+
+function scrollTopBtn() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+const textArray = ["Future IT Specialist 🚀","Gamer 💻","Tech Enthusiast ⚡"];
+let index = 0;
+let charIndex = 0;
+let currentText = "";
+let isDeleting = false;
+
+function typeEffect() {
+  const typingEl = document.getElementById("typing");
+
+  if (index >= textArray.length) index = 0;
+  currentText = textArray[index];
+
+  if (!isDeleting) {
+    typingEl.textContent = currentText.substring(0, charIndex++);
+    if (charIndex > currentText.length) {
+      isDeleting = true;
+      setTimeout(typeEffect, 1200);
+      return;
+    }
+  } else {
+    typingEl.textContent = currentText.substring(0, charIndex--);
+    if (charIndex === 0) {
+      isDeleting = false;
+      index++;
+    }
+  }
+
+  setTimeout(typeEffect, isDeleting ? 40 : 80);
+}
+
+typeEffect();
+</script>
+
+</body>
